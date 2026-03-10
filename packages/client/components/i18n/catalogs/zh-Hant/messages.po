@@ -264,6 +264,10 @@ msgstr ""
 msgid "Accept friend request"
 msgstr ""
 
+#: components/app/interface/settings/UserSettings.tsx
+msgid "Accessibility"
+msgstr ""
+
 #: components/modal/modals/PolicyChange.tsx
 msgid "Acknowledge"
 msgstr ""
@@ -335,6 +339,10 @@ msgstr ""
 
 #: components/i18n/errors.ts
 msgid "Already friends with this user."
+msgstr ""
+
+#: components/app/interface/settings/user/Accessibility.tsx
+msgid "Always show Send Message button"
 msgstr ""
 
 #: components/app/interface/settings/user/Language.tsx
@@ -595,7 +603,7 @@ msgstr ""
 msgid "Channels"
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
+#: components/app/interface/settings/user/Accessibility.tsx
 msgid "Chat Input"
 msgstr ""
 
@@ -1400,6 +1408,10 @@ msgstr ""
 msgid "Idle"
 msgstr ""
 
+#: components/app/interface/settings/user/Accessibility.tsx
+msgid "If disabled, the Send Message button will only appear on mobile"
+msgstr ""
+
 #: components/modal/modals/ReportContent.tsx
 msgid "Illegal hacking or cracking"
 msgstr ""
@@ -1880,6 +1892,7 @@ msgstr ""
 
 #: components/app/menus/ServerContextMenu.tsx
 #: components/app/menus/shared/NotificationContextMenu.tsx
+#: components/app/interface/settings/user/Accessibility.tsx
 msgid "Notifications"
 msgstr ""
 
@@ -2443,7 +2456,11 @@ msgid "Show corrections and suggestions as you type."
 msgstr ""
 
 #: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
-msgid "Show send message button"
+#~ msgid "Show send message button"
+#~ msgstr ""
+
+#: components/app/interface/settings/user/Accessibility.tsx
+msgid "Show unread conversations in server list"
 msgstr ""
 
 #: components/auth/src/flows/FlowLogin.tsx
