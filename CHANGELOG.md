@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.4.0](https://github.com/stoatchat/for-web/compare/stoat-for-web-v0.3.0...stoat-for-web-v0.4.0) (2026-03-12)
+
+
+### Features
+
+* Accept autocomplete suggestion w/ tab ([#1003](https://github.com/stoatchat/for-web/issues/1003)) ([cfdbcd3](https://github.com/stoatchat/for-web/commit/cfdbcd37c096af390858383ef28ae6984a53edf6))
+* Accept autocomplete suggestion w/ tab, or accept emoji with a seocnd ':' ([cfdbcd3](https://github.com/stoatchat/for-web/commit/cfdbcd37c096af390858383ef28ae6984a53edf6))
+* Add invite_only support, add invite code field ([#1013](https://github.com/stoatchat/for-web/issues/1013)) ([50e9a38](https://github.com/stoatchat/for-web/commit/50e9a38229cc58c630fb03736fbeff961b2a4b3e))
+* Add Toggleable Enhanced Noise Suppression Using RNNoise ([#783](https://github.com/stoatchat/for-web/issues/783)) ([15c19df](https://github.com/stoatchat/for-web/commit/15c19df95390d01967089d3727c76ca4223aecdf))
+
+
+### Bug Fixes
+
+* hide alert if server is muted ([#849](https://github.com/stoatchat/for-web/issues/849)) ([8fc3b5e](https://github.com/stoatchat/for-web/commit/8fc3b5ef003e0b11e6a3f3f651b0591e03e603b0))
+* Make ProfileJoined.tsx adhere to locale ([#972](https://github.com/stoatchat/for-web/issues/972)) ([42d46f3](https://github.com/stoatchat/for-web/commit/42d46f35b87fd9b5f45b80a55e10eb2f3d48c80b))
+
 ## [0.3.0](https://github.com/stoatchat/for-web/compare/stoat-for-web-v0.2.1...stoat-for-web-v0.3.0) (2026-03-03)
 
 
