@@ -482,83 +482,103 @@ function Entry(
             : "normal",
   );
 
+  const handleVoiceClick = () => {
+    if (inCall()) {
+      voice.disconnect();
+    } else {
+      voice.connect(props.channel);
+    }
+  };
+
+  const channelContent = (
+    <Column gap="sm">
+      <MenuButton
+        use:floating={props.menuGenerator(props.channel)}
+        size="normal"
+        alert={alertState()}
+        attention={attentionState()}
+        icon={
+          <>
+            <Switch fallback={<Symbol>grid_3x3</Symbol>}>
+              <Match when={props.channel.isVoice}>
+                <Symbol
+                  color={inCall() ? "var(--md-sys-color-primary)" : undefined}
+                >
+                  headset_mic
+                </Symbol>
+              </Match>
+            </Switch>
+            <Show when={props.channel.icon}>
+              <ChannelIcon
+                src={props.channel.iconURL}
+                css={{ marginEnd: "0.2em" }}
+              />
+            </Show>
+          </>
+        }
+        actions={
+          <>
+            <Show when={canInvite()}>
+              <a
+                use:floating={{
+                  tooltip: { placement: "top", content: "Create Invite" },
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  openModal({
+                    type: "create_invite",
+                    channel: props.channel,
+                  });
+                }}
+              >
+                <Symbol size={16} fill>
+                  person_add
+                </Symbol>
+              </a>
+            </Show>
+
+            <Show when={canEditChannel()}>
+              <a
+                use:floating={{
+                  tooltip: { placement: "top", content: "Edit Channel" },
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  openModal({
+                    type: "settings",
+                    config: "channel",
+                    context: props.channel,
+                  });
+                }}
+              >
+                <Symbol size={16} fill>
+                  settings
+                </Symbol>
+              </a>
+            </Show>
+          </>
+        }
+      >
+        <OverflowingText>
+          <TextWithEmoji content={props.channel.name!} />
+        </OverflowingText>
+      </MenuButton>
+
+      <VoiceChannelPreview channel={props.channel} />
+    </Column>
+  );
+
+  if (props.channel.isVoice) {
+    return (
+      <div onClick={handleVoiceClick} style={{ cursor: "pointer" }}>
+        {channelContent}
+      </div>
+    );
+  }
+
   return (
     <a href={`/server/${props.channel.serverId}/channel/${props.channel.id}`}>
-      <Column gap="sm">
-        <MenuButton
-          use:floating={props.menuGenerator(props.channel)}
-          size="normal"
-          alert={alertState()}
-          attention={attentionState()}
-          icon={
-            <>
-              <Switch fallback={<Symbol>grid_3x3</Symbol>}>
-                <Match when={props.channel.isVoice}>
-                  <Symbol
-                    color={inCall() ? "var(--md-sys-color-primary)" : undefined}
-                  >
-                    headset_mic
-                  </Symbol>
-                </Match>
-              </Switch>
-              <Show when={props.channel.icon}>
-                <ChannelIcon
-                  src={props.channel.iconURL}
-                  css={{ marginEnd: "0.2em" }}
-                />
-              </Show>
-            </>
-          }
-          actions={
-            <>
-              <Show when={canInvite()}>
-                <a
-                  use:floating={{
-                    tooltip: { placement: "top", content: "Create Invite" },
-                  }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    openModal({
-                      type: "create_invite",
-                      channel: props.channel,
-                    });
-                  }}
-                >
-                  <Symbol size={16} fill>
-                    person_add
-                  </Symbol>
-                </a>
-              </Show>
-
-              <Show when={canEditChannel()}>
-                <a
-                  use:floating={{
-                    tooltip: { placement: "top", content: "Edit Channel" },
-                  }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    openModal({
-                      type: "settings",
-                      config: "channel",
-                      context: props.channel,
-                    });
-                  }}
-                >
-                  <Symbol size={16} fill>
-                    settings
-                  </Symbol>
-                </a>
-              </Show>
-            </>
-          }
-        >
-          <OverflowingText>
-            <TextWithEmoji content={props.channel.name!} />
-          </OverflowingText>
-        </MenuButton>
-
-        <VoiceChannelPreview channel={props.channel} />
-      </Column>
+      {channelContent}
     </a>
   );
 }
